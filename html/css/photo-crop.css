@@ -1,0 +1,85 @@
+#cropBoundary {
+  height: 480px;
+  left: 50%;
+  margin: 10px;
+  margin-left: -320px;
+  position: absolute;
+  width: 640px;
+}
+
+#cropOutline {
+  border: 1px dashed white;
+  cursor: move;
+  height: 480px;
+  position: absolute;
+  width: 640px;
+}
+
+#cropOutline #cropActions {
+  position: absolute;
+  left: 0;
+  bottom: -38px;
+}
+
+#cropOutline .cropHandle {
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.5);
+  height: 12px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  margin: -7px;
+}
+
+#cropOutline .handleN {
+  top: 0;
+}
+
+#cropOutline .handleS {
+  bottom: 0;
+  top: auto;
+}
+
+#cropOutline .handleW {
+  left: 0;
+}
+
+#cropOutline .handleE {
+  right: 0;
+  left: auto;
+}
+
+#cropOutline .handleN {
+  cursor: n-resize;
+}
+
+#cropOutline .handleE {
+  cursor: e-resize;
+}
+
+#cropOutline .handleS {
+  cursor: s-resize;
+}
+
+#cropOutline .handleW {
+  cursor: w-resize;
+}
+
+#cropOutline .handleN.handleW {
+  cursor: nw-resize;
+}
+
+#cropOutline .handleN.handleE {
+  cursor: ne-resize;
+}
+
+#cropOutline .handleS.handleW {
+  cursor: sw-resize;
+}
+
+#cropOutline .handleS.handleE {
+  cursor: se-resize;
+}

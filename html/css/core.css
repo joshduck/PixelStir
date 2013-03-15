@@ -1,0 +1,21 @@
+#appHeader {
+  height: 50px;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+#photoViewer {
+  bottom: 142px;
+  left: 0;
+  overflow: auto;
+  right: 0;
+  top: 90px;
+}
+
+#photoDrawer {
+  bottom: 0;
+  height: 132px;
+  left: 0px;
+  right: 0px;
+}

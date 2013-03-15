@@ -1,0 +1,57 @@
+#photoViewer {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#instructionScreen {
+  margin: -20px 0 0 -100px;
+  width: 200px;
+}
+
+#previewScreen {
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#previewScreen #filterList {
+  margin: 10px;
+}
+
+#previewScreen #previewProxy,
+#previewScreen #previewFull {
+  margin: 10px;
+  max-height: 80%;
+  min-height: 250px;
+}
+
+#previewScreen .previewInput {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  display: block;
+  margin: 10px auto;
+  outline: none;
+  text-align: center;
+  width: 80%;
+}
+
+#previewScreen .previewInput:focus:-moz-placeholder {
+  color: transparent;
+}
+
+#previewScreen .previewInput:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+#previewScreen #previewName {
+  font-size: 18px;
+}
+
+#previewScreen #previewDescription {
+  font-size: 14px;
+}

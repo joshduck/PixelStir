@@ -1,0 +1,73 @@
+#thumbContainer {
+  list-style: none;
+  margin: 0;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0;
+}
+
+#thumbContainer .thumbItem {
+  background: #353844;
+  display: inline-block;
+  margin: 0 20px 0 0;
+  position: relative;
+}
+
+#thumbContainer .thumbItem .thumbBorder {
+  border: 1px solid #61636c;
+  cursor: pointer;
+  height: 120px;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+  width: 160px;
+}
+
+#thumbContainer .thumbItem .thumbShim {
+  display: inline-block;
+  height: 120px;
+  width: 0;
+  vertical-align: middle;
+}
+
+#thumbContainer .thumbItem .thumbImage {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#thumbContainer .thumbItem.thumbSelected .thumbBorder {
+  border-color: white;
+}
+
+#thumbContainer .thumbItem .thumbToggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.thumbBorder:before {
+  color: white;
+  left: 0;
+  right: 0;
+  top: 60px;
+  bottom: 10px;
+  display: block;
+  position: absolute;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+
+#thumbContainer .thumbItem.thumbLoading .thumbBorder:before {
+  content: "Loading...";
+}
+
+#thumbContainer .thumbItem.thumbUploading .thumbBorder:before {
+  content: "Sending...";
+}
+
+#thumbContainer .thumbItem.thumbUploaded .thumbBorder:before {
+  content: "Sent!";
+}

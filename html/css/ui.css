@@ -1,0 +1,208 @@
+html {
+  background: #353844;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+html, button {
+  color: white;
+  font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+  font-size: 13px;
+}
+
+body {
+  background: #262936 url('/images/ui/background.png') 50% 50% repeat;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+a {
+  color: white;
+}
+
+.uiHidden {
+  display: none !important;
+}
+
+.uiApp {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+
+.uiScreen {
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+}
+
+.uiWindow {
+  padding: 10px;
+  border-radius: 3px;
+  border-right: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+  border-left: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.uiPreview,
+.uiWindow {
+  background: #353844;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+}
+
+.uiInlay {
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+}
+
+.uiCentered {
+  left: 50%;
+  margin: -200px 0 0 -161px;
+  text-align: center;
+  top: 50%;
+  width: 300px;
+}
+
+.uiDialog {
+  z-index: 1000;
+}
+
+.uiButton,
+.uiButtonGroup,
+.uiToolbar {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.uiToolbar,
+.uiToolbar li,
+.uiButtonGroup,
+.uiButtonGroup li {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  white-space-collapse: collapse;
+}
+
+.uiButton {
+  background: #3f4250 50% 50% no-repeat;
+  background-image: -webkit-gradient(
+    linear, 
+    0 48%, 
+    0 53%, 
+    from(rgba(255, 255, 255, 0.1)), 
+    to(rgba(0, 0, 0, 0.05))
+  );
+  background-image: -moz-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 48%, 
+    rgba(0, 0, 0, 0.05) 53%
+  );
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  padding: 5px 10px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.uiButton,
+.uiButtonGroup {
+  border-radius: 3px;
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.1), 
+    0 -1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.uiButton:hover {
+  background-color: #4b4e5d;
+}
+
+.uiButton:active {
+  background-color: #3f4250;
+  background-image: none;
+  border-color: transparent;
+  background-image: -webkit-gradient(
+    linear, 
+    0 25%, 
+    0 75%, 
+    from(rgba(0, 0, 0, 0.1)),
+    to(rgba(0, 0, 0, 0)) 
+  );
+  background-image: -moz-linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.1) 25%, 
+    rgba(0, 0, 0, 0) 75%
+  );
+}
+
+.uiButtonGroup .uiButton {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.uiButtonGroup :first-child .uiButton {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.uiButtonGroup :last-child .uiButton {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.uiButtonGroup :not(:last-child) .uiButton {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.uiButton img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: -10px auto 0;
+}
+
+.uiToolbar .uiButton {
+  background: transparent;
+  border: none;
+  border-radius: none;
+  box-shadow: none;
+  padding: 5px 5px;
+  position: relative;
+  opacity: 0.66;
+}
+
+.uiToolbar .uiButton:hover,
+.uiToolbar .uiButton.active {
+  opacity: 1;
+}
+
+.uiToolbar .uiButton:active {
+  top: 1px;
+}
+
+.uiToolbar .uiToolbarDivider {
+  height: 54px;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.10);
+}

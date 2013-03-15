@@ -1,0 +1,19 @@
+#appHeader #appLogo {
+  color: #fff;
+  text-decoration: none;
+}
+
+#appHeader h1 {
+  margin: 10px;
+  line-height: 29px
+}
+
+#appHeader h1 img {
+  vertical-align: top;
+}
+
+#appHeader #toolsHeader {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+}
