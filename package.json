@@ -1,0 +1,19 @@
+{
+  "name": "PixelStir",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/joshduck/PixelStir.git",
+  "author": "Josh Duck <github@joshduck.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf build && webpack",
+    "watch": "rimraf build && webpack --watch",
+    "serve": "serve build/"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.2.3",
+    "rimraf": "^2.6.2",
+    "serve": "^6.4.1",
+    "webpack": "^3.8.1"
+  }
+}

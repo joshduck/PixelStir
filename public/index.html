@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pixel Stir</title>
+  <link rel="shortcut icon" type="image/png" href="/static/images/logo-icon.png" />
+
+  <script type="text/javascript" src="/static/third-party/mootools-core-1.4.4-full-nocompat.js"></script>
+  <script type="text/javascript" src="/static/third-party/caman.full.min.js"></script>
+  <script type="text/javascript" src="/static/bundle.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/static/css/ui.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/core.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/app-header.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/login-screen.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/photo-drawer.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/photo-crop.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/photo-viewer.css" />
+</head>
+
+<body>
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '343298112376620',
+        channelUrl: '//www.lightupapp.com/channel.html',
+        status: true,
+        cookie: true,
+        xfbml: false
+      });
+
+      App.getInstance().start();
+      App.getInstance().setAuthenticated(true);
+    };
+
+    // Load the SDK Asynchronously
+    (function (d) {
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) { return; }
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+  </script>
+
+  <div class="uiApp">
+    <section id="loginScreen" class="uiWindow uiScreen uiCentered uiDialog">
+      <h1>Pixel Stir</h1>
+      <p>The easy way to sort, mix and upload your photos to Facebook.</p>
+      <hr />
+      <p>
+        A project by
+        <a href="http://joshduck.com/" target="_blank">Josh Duck</a>.
+        <br /> Icons by
+        <a href="http://www.dryicons.com/" target="_blank" rel="nofollow">DryIcons</a>. Filters by
+        <a href="http://www.camanjs.com/" target="_blank" rel="nofollow">CamanJS</a>.
+      </p>
+      <hr />
+      <button id="loginButton" class="uiButton">Login to Facebook</button>
+      <button id="loginCloseButton" class="uiButton uiHidden">Close</button>
+    </section>
+
+    <section id="appHeader" class="uiScreen uiWindow">
+      <a href="#" id="appLogo">
+        <h1>
+          <img src="/static/images/logo-small.png" alt="Pixel Stir Logo" /> Pixel Stir
+        </h1>
+      </a>
+
+      <div id="toolsHeader">
+        <ul class="uiToolbar uiHidden" id="editModes">
+          <li>
+            <button class="uiButton" data-mode="preview">
+              <img src="/static/images/icons/photo.png" /> Preview
+            </button>
+          </li>
+          <!-- 
+          -->
+          <li>
+            <button class="uiButton" data-mode="filter">
+              <img src="/static/images/icons/filter.png" /> Filter
+            </button>
+          </li>
+          <!-- 
+          -->
+          <li>
+            <button class="uiButton" data-mode="crop">
+              <img src="/static/images/icons/crop.png" /> Crop
+            </button>
+          </li>
+          <li class="uiToolbarDivider"></li>
+        </ul>
+
+        <ul class="uiToolbar">
+          <li>
+            <button id="uploadButton" class="uiButton">
+              <img src="/static/images/icons/upload.png" /> Upload
+            </button>
+          </li>
+          <!-- 
+          -->
+          <li>
+            <button id="clearButton" class="uiButton">
+              <img src="/static/images/icons/new.png" /> Clear
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="photoViewer" class="uiScreen">
+      <div id="instructionScreen" class="uiInlay uiCentered uiHidden">
+        <p>Drop images here.</p>
+      </div>
+      <div id="previewScreen" class="uiHidden">
+
+        <div id="cropBoundary" class="uiHidden">
+          <div id="cropOutline">
+            <div class="cropHandle handleN handleW"></div>
+            <div class="cropHandle handleN"></div>
+            <div class="cropHandle handleN handleE"></div>
+            <div class="cropHandle handleE"></div>
+            <div class="cropHandle handleS handleE"></div>
+            <div class="cropHandle handleS"></div>
+            <div class="cropHandle handleS handleW"></div>
+            <div class="cropHandle handleW"></div>
+          </div>
+        </div>
+
+        <canvas id="previewProxy" class="uiHidden uiPreview"></canvas>
+        <canvas id="previewFull" class="uiPreview"></canvas>
+
+        <div>
+          <ul class="uiButtonGroup uiHidden" id="filterActions">
+            <li>
+              <button class="uiButton" data-filter="sinCity">
+                Monotone
+              </button>
+            </li>
+            <!--
+            -->
+            <li>
+              <button class="uiButton" data-filter="vintage">
+                Sepia
+              </button>
+            </li>
+            <!--
+            -->
+            <li>
+              <button class="uiButton" data-filter="orangePeel">
+                Vintage
+              </button>
+            </li>
+            <!--
+            -->
+            <li>
+              <button class="uiButton" data-filter="clarity">
+                Saturated
+              </button>
+            </li>
+            <!--
+            -->
+            <li>
+              <button class="uiButton" data-filter="">
+                None
+              </button>
+            </li>
+          </ul>
+
+          <div id="cropActions" class="uiHidden">
+            <ul class="uiButtonGroup">
+              <li>
+                <button class="uiButton" id="cropApplyButton">Apply</button>
+              </li>
+              <!--
+              -->
+              <li>
+                <button class="uiButton" id="cropCancelButton">Cancel</button>
+              </li>
+            </ul>
+
+            <button class="uiButton" id="cropResetButton">Fill</button>
+          </div>
+
+          <div id="previewEdit">
+            <input type="text" id="previewName" placeholder="Add a title" class="previewInput" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="photoDrawer" class="uiScreen">
+      <ul id="thumbContainer">
+        <li class="uiHidden thumbItem" id="thumbTemplate">
+          <div class="thumbBorder">
+            <div class="thumbShim"></div>
+            <canvas class="thumbImage" />
+          </div>
+          <input class="thumbToggle" type="checkbox" />
+          <label class="thumbName" />
+        </li>
+      </ul>
+    </section>
+  </div>
+</body>
+
+</html>
